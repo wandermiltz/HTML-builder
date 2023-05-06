@@ -22,7 +22,7 @@ async function copyDir() {
     await fs.mkdir(dest, { recursive: true }); // создаем директорию-копию
     const objects = await fs.readdir(source); // получаем все объекты в директории
 
-    objects.forEach(async obj => {
+    for (const obj of objects) {
       const sourcePath = path.join(source, obj);
       const destPath = path.join(dest, obj);
       const stat = await fs.stat(sourcePath);
@@ -32,7 +32,7 @@ async function copyDir() {
       } else {
         await fs.copyFile(sourcePath, destPath); // просто копируем, если объект - это файл
       }
-    })
+    }
   }
   try {
     copyDirRecursive(filesFolderPath, filesCopyFolderPath);
