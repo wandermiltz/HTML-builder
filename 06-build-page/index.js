@@ -2,15 +2,15 @@
 const path = require('path');
 const fs = require('fs').promises;
 
-const templateFilePath = path.join(__dirname, 'template.html')
-const componentsDirPath = path.join(__dirname, 'components')
+const templateFilePath = path.join(__dirname, 'template.html');
+const componentsDirPath = path.join(__dirname, 'components');
 
 const stylesDirPath = path.join(__dirname, 'styles');
 const assetsDirPath = path.join(__dirname, 'assets');
 const projectDistDirPath = path.join(__dirname, 'project-dist');
 
 const projectDistAssetsDirPath = path.join(projectDistDirPath, 'assets');
-const projectDistStylesFilePath = path.join(projectDistDirPath, 'style.css')
+const projectDistStylesFilePath = path.join(projectDistDirPath, 'style.css');
 const projectDistIndexFilePath = path.join(projectDistDirPath, 'index.html');
 
 async function replaceTemplates() {
@@ -41,15 +41,15 @@ async function replaceTemplates() {
 async function mergeStyles() {
   try {
     const objects = await fs.readdir(stylesDirPath); /// получаем все объекты в директории
-    const cssFilesArr = []
+    const cssFilesArr = [];
 
     for (const obj of objects) {
-      const objPath = path.join(stylesDirPath, obj)
+      const objPath = path.join(stylesDirPath, obj);
       const stat = await fs.stat(objPath); // вызываем stat, чтобы получить информацию об объекте
       if (stat.isFile()) { // проверяем, является ли объект файлом
         const fileExtension = path.extname(obj); // получаем расширение файла
         if (fileExtension === '.css') {
-          cssFilesArr.push(obj) // добавляем в массив только css файлы
+          cssFilesArr.push(obj); // добавляем в массив только css файлы
         }
       }
     }

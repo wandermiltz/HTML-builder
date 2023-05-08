@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs').promises;
 
-const secretFolderName = 'secret-folder'
+const secretFolderName = 'secret-folder';
 const secretFolderPath = path.join(__dirname, secretFolderName);
 
 async function showFiles() {

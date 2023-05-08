@@ -7,7 +7,7 @@ const readStream = fs.createReadStream(textPath, 'utf-8');
 let result = '';
 
 readStream.on('data', (chunk) => {
-  result += chunk
+  result += chunk;
 });
 
 readStream.on('end', () => {

@@ -5,7 +5,7 @@ const path = require('path');
 const textFile = 'text.txt';
 const textFilePath = path.join(__dirname, textFile);
 const messageOnStart = 'Введите текст:';
-const messageOnContinue = 'Текст записан в файл, можете продолжить ввод:'
+const messageOnContinue = 'Текст записан в файл, можете продолжить ввод:';
 const messageOnEnd = 'До свидания!';
 
 // Создаем поток записи в файл
